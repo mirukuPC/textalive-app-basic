@@ -66,14 +66,6 @@ function onAppReady(app) {
       })
     );
 
-    // 歌詞頭出しボタン / Seek to the first character in lyrics text
-    jumpBtn.addEventListener(
-      "click",
-      () =>
-        player.video &&
-        player.requestMediaSeek(player.video.firstChar.startTime)
-    );
-
     // 一時停止ボタン / Pause music playback
     pauseBtn.addEventListener(
       "click",
@@ -141,10 +133,6 @@ function onTimerReady(t) {
       .querySelectorAll("button")
       .forEach((btn) => (btn.disabled = false));
   }
-
-  // 歌詞がなければ歌詞頭出しボタンを無効にする
-  // Disable jump button if no lyrics is available
-  jumpBtn.disabled = !player.video.firstChar;
 }
 
 /**
